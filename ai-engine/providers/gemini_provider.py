@@ -20,7 +20,7 @@ class GeminiProvider(BaseLLMProvider):
 
     BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
-    def __init__(self, api_key: str, model_name: str = "gemini-2.5-flash", timeout_seconds: int = 30):
+    def __init__(self, api_key: str, model_name: str = "gemini-3-flash-preview", timeout_seconds: int = 30):
         self.api_key = api_key
         self._model_name = model_name
         self.timeout_seconds = timeout_seconds
@@ -103,6 +103,20 @@ class GeminiProvider(BaseLLMProvider):
             clean_text = clean_text.strip("`")
             if clean_text.startswith("json"):
                 clean_text = clean_text[4:].strip()
+
+        # Find first { or [ and last } or ]
+        start_idx = -1
+        for i, ch in enumerate(clean_text):
+            if ch in ("{", "["):
+                start_idx = i
+                break
+        end_idx = -1
+        for i in range(len(clean_text) - 1, -1, -1):
+            if clean_text[i] in ("}", "]"):
+                end_idx = i + 1
+                break
+        if start_idx != -1 and end_idx != -1:
+            clean_text = clean_text[start_idx:end_idx]
 
         data = json.loads(clean_text)
         return response_model.model_validate(data)

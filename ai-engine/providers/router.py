@@ -11,6 +11,7 @@ from pydantic import BaseModel
 from .base import BaseLLMProvider, BaseEmbeddingProvider
 from .mock import MockLLMProvider, MockEmbeddingProvider
 from .gemini_provider import GeminiProvider
+from .groq_provider import GroqProvider
 from config.settings import get_settings
 
 logger = logging.getLogger("arcana.providers.router")
@@ -18,13 +19,14 @@ T = TypeVar("T", bound=BaseModel)
 
 
 class ProviderRouter:
-    """Routes generation requests between primary and fallback providers with bounded retries."""
+    """Routes generation requests between primary, secondary, and fallback providers with bounded retries."""
 
     def __init__(
         self,
         primary_provider: Optional[BaseLLMProvider] = None,
         fallback_provider: Optional[BaseLLMProvider] = None,
         embedding_provider: Optional[BaseEmbeddingProvider] = None,
+        providers: Optional[List[BaseLLMProvider]] = None,
         max_retries: int = 3,
         initial_backoff_sec: float = 0.5,
     ):
@@ -32,19 +34,30 @@ class ProviderRouter:
         self.max_retries = max_retries or settings.LLM_MAX_RETRIES
         self.initial_backoff_sec = initial_backoff_sec
 
-        # Initialize primary LLM
-        if primary_provider:
-            self.primary = primary_provider
-        elif settings.PRIMARY_LLM_PROVIDER == "gemini" and settings.GEMINI_API_KEY:
-            self.primary = GeminiProvider(api_key=settings.GEMINI_API_KEY)
+        if providers:
+            self.providers = list(providers)
+            self.primary = self.providers[0]
+            self.fallback = self.providers[1] if len(self.providers) > 1 else self.providers[0]
+        elif primary_provider or fallback_provider:
+            self.primary = primary_provider or MockLLMProvider(model_name="mock-primary")
+            self.fallback = fallback_provider or MockLLMProvider(model_name="mock-fallback")
+            self.providers = [self.primary, self.fallback]
         else:
-            self.primary = MockLLMProvider(model_name="mock-primary")
+            # Build dynamic multi-tier cascade
+            self.providers = []
+            if settings.GEMINI_API_KEY:
+                self.providers.append(
+                    GeminiProvider(api_key=settings.GEMINI_API_KEY, model_name=settings.GEMINI_MODEL)
+                )
+            if settings.GROQ_API_KEY:
+                self.providers.append(
+                    GroqProvider(api_key=settings.GROQ_API_KEY, model_name=settings.GROQ_MODEL)
+                )
+            # Final guaranteed deterministic tier
+            self.providers.append(MockLLMProvider(model_name="deterministic-grounded-fallback"))
 
-        # Initialize fallback LLM
-        if fallback_provider:
-            self.fallback = fallback_provider
-        else:
-            self.fallback = MockLLMProvider(model_name="mock-fallback")
+            self.primary = self.providers[0]
+            self.fallback = self.providers[1] if len(self.providers) > 1 else self.providers[0]
 
         # Initialize embedding provider
         if embedding_provider:
@@ -53,8 +66,8 @@ class ProviderRouter:
             self.embedding_provider = MockEmbeddingProvider()
 
     def generate(self, prompt: str, system_prompt: Optional[str] = None, **kwargs: Any) -> str:
-        """Generate text with primary provider, failing over to fallback on error."""
-        providers: List[BaseLLMProvider] = [self.primary, self.fallback]
+        """Generate text with primary provider, failing over down the cascade on error."""
+        providers: List[BaseLLMProvider] = self.providers
 
         last_error = None
         for provider in providers:
@@ -94,7 +107,7 @@ class ProviderRouter:
         **kwargs: Any,
     ) -> T:
         """Generate structured Pydantic object with primary or fallback provider."""
-        providers: List[BaseLLMProvider] = [self.primary, self.fallback]
+        providers: List[BaseLLMProvider] = self.providers
 
         last_error = None
         for provider in providers:

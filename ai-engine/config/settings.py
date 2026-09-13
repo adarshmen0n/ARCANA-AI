@@ -35,6 +35,9 @@ class Settings(BaseModel):
     PRIMARY_LLM_PROVIDER: str = Field(default_factory=lambda: os.getenv("PRIMARY_LLM_PROVIDER", "mock"))
     FALLBACK_LLM_PROVIDER: str = Field(default_factory=lambda: os.getenv("FALLBACK_LLM_PROVIDER", "mock"))
     GEMINI_API_KEY: str = Field(default_factory=lambda: os.getenv("GEMINI_API_KEY", ""))
+    GEMINI_MODEL: str = Field(default_factory=lambda: os.getenv("GEMINI_MODEL", "gemini-3-flash-preview"))
+    GROQ_API_KEY: str = Field(default_factory=lambda: os.getenv("GROQ_API_KEY", ""))
+    GROQ_MODEL: str = Field(default_factory=lambda: os.getenv("GROQ_MODEL", "openai/gpt-oss-20b"))
     OPENAI_API_KEY: str = Field(default_factory=lambda: os.getenv("OPENAI_API_KEY", ""))
 
     # Embeddings & Vector Store

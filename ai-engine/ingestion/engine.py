@@ -22,6 +22,7 @@ class DocumentIngestionEngine:
     def __init__(self):
         self._extractors: Dict[str, BaseExtractor] = {
             "txt": TextExtractor(),
+            "md": TextExtractor(),
             "pdf": PDFExtractor(),
             "docx": DocxExtractor(),
             "pptx": PPTXExtractor(),

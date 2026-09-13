@@ -1,0 +1,678 @@
+{
+  "schema_version": "1.0",
+  "campaign": {
+    "id": "cmp_9dedba564ef9",
+    "title": "The Raft & Byzantine Chronicles",
+    "subject": "Distributed Consensus",
+    "difficulty": 2,
+    "chapters": [
+      {
+        "id": "chp_59b5d7a5d99f",
+        "title": "Chapter 1: 1. The Distributed Consensus Problem & Foundations",
+        "description": "Mastery of 3 core concepts.",
+        "learning_objectives": [],
+        "missions": [
+          {
+            "mission_id": "msn_c0f82521a5f0",
+            "title": "Trial of 1. The Distributed Consensus Problem",
+            "concept_ids": [
+              "cpt_46e6a2dede0f"
+            ],
+            "learning_objective": "Analyze and evaluate 1. The Distributed Consensus Problem behaviors and dependency trade-offs.",
+            "mechanic": "quiz",
+            "challenge": {
+              "mechanic_type": "quiz",
+              "target_concept": "1. The Distributed Consensus Problem",
+              "time_limit_seconds": 120
+            },
+            "difficulty": 3,
+            "story": {
+              "story_id": "sty_4d01102cdfae",
+              "world": "Arcana Realm Citadel",
+              "context": "The archive sector governing 1. The Distributed Consensus Problem has experienced memory drift. Scholars require your analytical insight to restore the corrupted nodes.",
+              "motivation": "Mastering 1. The Distributed Consensus Problem is vital to stabilizing the system and unlocking the inner sanctum.",
+              "mission_setting": "Archive Vault of 1. The Distributed Consensus Problem"
+            },
+            "npc": {
+              "npc_id": "npc_67d10c17e98d",
+              "name": "Archivist of 1. The Distributed Consensus Problem",
+              "role": "Educational Mentor",
+              "educational_purpose": "Guide the learner through foundational principles of 1. The Distributed Consensus Problem.",
+              "tone": "encouraging",
+              "dialogue": [
+                "Greetings, seeker. Today we explore 1. The Distributed Consensus Problem.",
+                "Pay careful attention: In distributed computing, consensus is the process of agreeing on a single data value or state among multiple participat.",
+                "Whenever you are ready, engage the simulation and test your understanding!"
+              ],
+              "concept_ids": [
+                "cpt_46e6a2dede0f"
+              ]
+            },
+            "questions": [
+              {
+                "question_id": "qst_c95c30a752cc",
+                "concept_id": "cpt_46e6a2dede0f",
+                "type": "mcq",
+                "question": "What is the primary pedagogical role of 1. The Distributed Consensus Problem?",
+                "options": [
+                  "It provides 1. The Distributed Consensus Problem mechanics to manage state.",
+                  "It completely disables 1. The Distributed Consensus Problem functionality.",
+                  "It is purely decorative syntax with no runtime effect.",
+                  "It forces infinite recursive execution."
+                ],
+                "correct_answer": "It provides 1. The Distributed Consensus Problem mechanics to manage state.",
+                "explanation": "1. The Distributed Consensus Problem is designed to manage state and organize logic as defined: In distributed computing, consensus is the process of agreeing on a single data value or state among.",
+                "difficulty": 3,
+                "source_references": [
+                  "chk_614486945db1"
+                ]
+              },
+              {
+                "question_id": "qst_0493e8bbf444",
+                "concept_id": "cpt_46e6a2dede0f",
+                "type": "true_false",
+                "question": "True or False: 1. The Distributed Consensus Problem is relevant to understanding computational structure.",
+                "options": [
+                  "True",
+                  "False"
+                ],
+                "correct_answer": "True",
+                "explanation": "True. 1. The Distributed Consensus Problem plays an active role in structured reasoning.",
+                "difficulty": 2,
+                "source_references": [
+                  "chk_614486945db1"
+                ]
+              }
+            ],
+            "hints": [
+              {
+                "hint_id": "hnt_bc52ed50b59b",
+                "question_id": "qst_c95c30a752cc",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_5fdca361819b",
+                "question_id": "qst_c95c30a752cc",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_8394d70ad25b",
+                "question_id": "qst_c95c30a752cc",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_f476180d4d09",
+                "question_id": "qst_c95c30a752cc",
+                "tier": 4,
+                "text": "Review the first key principle: '1. The Distributed Consensus Problem is designed to manage state and organize lo...'"
+              },
+              {
+                "hint_id": "hnt_a7d1c4c83048",
+                "question_id": "qst_0493e8bbf444",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_d699ff3a3c6e",
+                "question_id": "qst_0493e8bbf444",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_f07207000316",
+                "question_id": "qst_0493e8bbf444",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_2a67060fe6b5",
+                "question_id": "qst_0493e8bbf444",
+                "tier": 4,
+                "text": "Review the first key principle: 'True. 1. The Distributed Consensus Problem plays an active role in structured re...'"
+              }
+            ],
+            "rewards": {
+              "xp": 150,
+              "coins": 30,
+              "badge_id": null,
+              "achievement_name": "1. The Distributed Consensus Problem Initiate"
+            },
+            "completion_condition": {
+              "type": "min_accuracy",
+              "target_metric": "accuracy",
+              "required_value": 0.7
+            },
+            "source_references": [
+              "chk_614486945db1"
+            ]
+          },
+          {
+            "mission_id": "msn_ca58947d7450",
+            "title": "Trial of 4. Byzantine Fault Tolerance (BFT)",
+            "concept_ids": [
+              "cpt_8e8a216fa0c9"
+            ],
+            "learning_objective": "Understand and apply principles of 4. Byzantine Fault Tolerance (BFT) to solve foundational problems.",
+            "mechanic": "matching",
+            "challenge": {
+              "mechanic_type": "matching",
+              "target_concept": "4. Byzantine Fault Tolerance (BFT)",
+              "time_limit_seconds": 120
+            },
+            "difficulty": 1,
+            "story": {
+              "story_id": "sty_ab9b63e5b264",
+              "world": "Arcana Realm Citadel",
+              "context": "The archive sector governing 4. Byzantine Fault Tolerance (BFT) has experienced memory drift. Scholars require your analytical insight to restore the corrupted nodes.",
+              "motivation": "Mastering 4. Byzantine Fault Tolerance (BFT) is vital to stabilizing the system and unlocking the inner sanctum.",
+              "mission_setting": "Archive Vault of 4. Byzantine Fault Tolerance (BFT)"
+            },
+            "npc": {
+              "npc_id": "npc_5bf09b84328b",
+              "name": "Archivist of 4. Byzantine Fault Tolerance (BFT)",
+              "role": "Educational Mentor",
+              "educational_purpose": "Guide the learner through foundational principles of 4. Byzantine Fault Tolerance (BFT).",
+              "tone": "encouraging",
+              "dialogue": [
+                "Greetings, seeker. Today we explore 4. Byzantine Fault Tolerance (BFT).",
+                "Pay careful attention: Crash fault tolerance assumes failed nodes simply stop responding. Byzantine Fault Tolerance addresses adversarial envir.",
+                "Whenever you are ready, engage the simulation and test your understanding!"
+              ],
+              "concept_ids": [
+                "cpt_8e8a216fa0c9"
+              ]
+            },
+            "questions": [
+              {
+                "question_id": "qst_1486cbb79ee2",
+                "concept_id": "cpt_8e8a216fa0c9",
+                "type": "mcq",
+                "question": "What is the primary pedagogical role of 4. Byzantine Fault Tolerance (BFT)?",
+                "options": [
+                  "It provides 4. Byzantine Fault Tolerance (BFT) mechanics to manage state.",
+                  "It completely disables 4. Byzantine Fault Tolerance (BFT) functionality.",
+                  "It is purely decorative syntax with no runtime effect.",
+                  "It forces infinite recursive execution."
+                ],
+                "correct_answer": "It provides 4. Byzantine Fault Tolerance (BFT) mechanics to manage state.",
+                "explanation": "4. Byzantine Fault Tolerance (BFT) is designed to manage state and organize logic as defined: Crash fault tolerance assumes failed nodes simply stop responding. Byzantine Fault Tolerance address.",
+                "difficulty": 1,
+                "source_references": [
+                  "chk_c08bb4cc4395"
+                ]
+              },
+              {
+                "question_id": "qst_be51b7636b0e",
+                "concept_id": "cpt_8e8a216fa0c9",
+                "type": "true_false",
+                "question": "True or False: 4. Byzantine Fault Tolerance (BFT) is relevant to understanding computational structure.",
+                "options": [
+                  "True",
+                  "False"
+                ],
+                "correct_answer": "True",
+                "explanation": "True. 4. Byzantine Fault Tolerance (BFT) plays an active role in structured reasoning.",
+                "difficulty": 1,
+                "source_references": [
+                  "chk_c08bb4cc4395"
+                ]
+              }
+            ],
+            "hints": [
+              {
+                "hint_id": "hnt_f563a6437698",
+                "question_id": "qst_1486cbb79ee2",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_cb5e57857b31",
+                "question_id": "qst_1486cbb79ee2",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_d9eea657565b",
+                "question_id": "qst_1486cbb79ee2",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_f7fda3be3c2c",
+                "question_id": "qst_1486cbb79ee2",
+                "tier": 4,
+                "text": "Review the first key principle: '4. Byzantine Fault Tolerance (BFT) is designed to manage state and organize logi...'"
+              },
+              {
+                "hint_id": "hnt_044924d03fac",
+                "question_id": "qst_be51b7636b0e",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_2ebfb9542924",
+                "question_id": "qst_be51b7636b0e",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_54ca1aa321c6",
+                "question_id": "qst_be51b7636b0e",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_97179428a44c",
+                "question_id": "qst_be51b7636b0e",
+                "tier": 4,
+                "text": "Review the first key principle: 'True. 4. Byzantine Fault Tolerance (BFT) plays an active role in structured reas...'"
+              }
+            ],
+            "rewards": {
+              "xp": 50,
+              "coins": 10,
+              "badge_id": null,
+              "achievement_name": "4. Byzantine Fault Tolerance (BFT) Initiate"
+            },
+            "completion_condition": {
+              "type": "min_accuracy",
+              "target_metric": "accuracy",
+              "required_value": 0.7
+            },
+            "source_references": [
+              "chk_c08bb4cc4395"
+            ]
+          },
+          {
+            "mission_id": "msn_ef50af887daf",
+            "title": "Trial of 2. The FLP Impossibility Result",
+            "concept_ids": [
+              "cpt_dc6235f1b924"
+            ],
+            "learning_objective": "Analyze and evaluate 2. The FLP Impossibility Result behaviors and dependency trade-offs.",
+            "mechanic": "ordering",
+            "challenge": {
+              "mechanic_type": "ordering",
+              "target_concept": "2. The FLP Impossibility Result",
+              "time_limit_seconds": 120
+            },
+            "difficulty": 3,
+            "story": {
+              "story_id": "sty_2e4c67ec8466",
+              "world": "Arcana Realm Citadel",
+              "context": "The archive sector governing 2. The FLP Impossibility Result has experienced memory drift. Scholars require your analytical insight to restore the corrupted nodes.",
+              "motivation": "Mastering 2. The FLP Impossibility Result is vital to stabilizing the system and unlocking the inner sanctum.",
+              "mission_setting": "Archive Vault of 2. The FLP Impossibility Result"
+            },
+            "npc": {
+              "npc_id": "npc_2ddb51e27db5",
+              "name": "Archivist of 2. The FLP Impossibility Result",
+              "role": "Educational Mentor",
+              "educational_purpose": "Guide the learner through foundational principles of 2. The FLP Impossibility Result.",
+              "tone": "encouraging",
+              "dialogue": [
+                "Greetings, seeker. Today we explore 2. The FLP Impossibility Result.",
+                "Pay careful attention: Fischer, Lynch, and Paterson (FLP) proved in 1985 that in an asynchronous network, no deterministic consensus protocol c.",
+                "Whenever you are ready, engage the simulation and test your understanding!"
+              ],
+              "concept_ids": [
+                "cpt_dc6235f1b924"
+              ]
+            },
+            "questions": [
+              {
+                "question_id": "qst_f0349ec9fde5",
+                "concept_id": "cpt_dc6235f1b924",
+                "type": "mcq",
+                "question": "What is the primary pedagogical role of 2. The FLP Impossibility Result?",
+                "options": [
+                  "It provides 2. The FLP Impossibility Result mechanics to manage state.",
+                  "It completely disables 2. The FLP Impossibility Result functionality.",
+                  "It is purely decorative syntax with no runtime effect.",
+                  "It forces infinite recursive execution."
+                ],
+                "correct_answer": "It provides 2. The FLP Impossibility Result mechanics to manage state.",
+                "explanation": "2. The FLP Impossibility Result is designed to manage state and organize logic as defined: Fischer, Lynch, and Paterson (FLP) proved in 1985 that in an asynchronous network, no deterministic .",
+                "difficulty": 3,
+                "source_references": [
+                  "chk_e2e47bce67be"
+                ]
+              },
+              {
+                "question_id": "qst_2ecab856682f",
+                "concept_id": "cpt_dc6235f1b924",
+                "type": "true_false",
+                "question": "True or False: 2. The FLP Impossibility Result is relevant to understanding computational structure.",
+                "options": [
+                  "True",
+                  "False"
+                ],
+                "correct_answer": "True",
+                "explanation": "True. 2. The FLP Impossibility Result plays an active role in structured reasoning.",
+                "difficulty": 2,
+                "source_references": [
+                  "chk_e2e47bce67be"
+                ]
+              }
+            ],
+            "hints": [
+              {
+                "hint_id": "hnt_e6a8f79fb9f6",
+                "question_id": "qst_f0349ec9fde5",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_a515706699a6",
+                "question_id": "qst_f0349ec9fde5",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_0f93320391dc",
+                "question_id": "qst_f0349ec9fde5",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_1fc1f4c74892",
+                "question_id": "qst_f0349ec9fde5",
+                "tier": 4,
+                "text": "Review the first key principle: '2. The FLP Impossibility Result is designed to manage state and organize logic a...'"
+              },
+              {
+                "hint_id": "hnt_8e52d3433ade",
+                "question_id": "qst_2ecab856682f",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_b2fd2e55b628",
+                "question_id": "qst_2ecab856682f",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_2c8bc406d04f",
+                "question_id": "qst_2ecab856682f",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_db3a0dfe7c98",
+                "question_id": "qst_2ecab856682f",
+                "tier": 4,
+                "text": "Review the first key principle: 'True. 2. The FLP Impossibility Result plays an active role in structured reasoni...'"
+              }
+            ],
+            "rewards": {
+              "xp": 150,
+              "coins": 30,
+              "badge_id": null,
+              "achievement_name": "2. The FLP Impossibility Result Initiate"
+            },
+            "completion_condition": {
+              "type": "min_accuracy",
+              "target_metric": "accuracy",
+              "required_value": 0.7
+            },
+            "source_references": [
+              "chk_e2e47bce67be"
+            ]
+          }
+        ],
+        "boss": {
+          "boss_id": "boss_15ccd73da263",
+          "name": "Guardian of Chapter 1: 1. The Distributed Consensus Problem & Foundations",
+          "concept_ids": [
+            "cpt_46e6a2dede0f",
+            "cpt_8e8a216fa0c9",
+            "cpt_dc6235f1b924"
+          ],
+          "narrative_intro": "The Guardian challenges your mastery of Chapter 1: 1. The Distributed Consensus Problem & Foundations! Only those who understand the intricate connections between these concepts shall prevail.",
+          "phases": [
+            {
+              "phase_number": 1,
+              "title": "Foundation Test",
+              "description": "Demonstrate baseline comprehension of 1. The Distributed Consensus Problem, 4. Byzantine Fault Tolerance (BFT), 2. The FLP Impossibility Result.",
+              "question_indices": [
+                0
+              ]
+            },
+            {
+              "phase_number": 2,
+              "title": "Synthesis Trial",
+              "description": "Solve multi-concept dependencies and edge cases.",
+              "question_indices": [
+                1,
+                2
+              ]
+            }
+          ],
+          "questions": [
+            {
+              "question_id": "qst_9841d6db697d",
+              "concept_id": "cpt_46e6a2dede0f",
+              "type": "mcq",
+              "question": "What is the primary pedagogical role of 1. The Distributed Consensus Problem?",
+              "options": [
+                "It provides 1. The Distributed Consensus Problem mechanics to manage state.",
+                "It completely disables 1. The Distributed Consensus Problem functionality.",
+                "It is purely decorative syntax with no runtime effect.",
+                "It forces infinite recursive execution."
+              ],
+              "correct_answer": "It provides 1. The Distributed Consensus Problem mechanics to manage state.",
+              "explanation": "1. The Distributed Consensus Problem is designed to manage state and organize logic as defined: In distributed computing, consensus is the process of agreeing on a single data value or state among.",
+              "difficulty": 3,
+              "source_references": [
+                "chk_614486945db1"
+              ]
+            },
+            {
+              "question_id": "qst_a5804476bd83",
+              "concept_id": "cpt_8e8a216fa0c9",
+              "type": "mcq",
+              "question": "What is the primary pedagogical role of 4. Byzantine Fault Tolerance (BFT)?",
+              "options": [
+                "It provides 4. Byzantine Fault Tolerance (BFT) mechanics to manage state.",
+                "It completely disables 4. Byzantine Fault Tolerance (BFT) functionality.",
+                "It is purely decorative syntax with no runtime effect.",
+                "It forces infinite recursive execution."
+              ],
+              "correct_answer": "It provides 4. Byzantine Fault Tolerance (BFT) mechanics to manage state.",
+              "explanation": "4. Byzantine Fault Tolerance (BFT) is designed to manage state and organize logic as defined: Crash fault tolerance assumes failed nodes simply stop responding. Byzantine Fault Tolerance address.",
+              "difficulty": 1,
+              "source_references": [
+                "chk_c08bb4cc4395"
+              ]
+            },
+            {
+              "question_id": "qst_5793959e63ca",
+              "concept_id": "cpt_dc6235f1b924",
+              "type": "mcq",
+              "question": "What is the primary pedagogical role of 2. The FLP Impossibility Result?",
+              "options": [
+                "It provides 2. The FLP Impossibility Result mechanics to manage state.",
+                "It completely disables 2. The FLP Impossibility Result functionality.",
+                "It is purely decorative syntax with no runtime effect.",
+                "It forces infinite recursive execution."
+              ],
+              "correct_answer": "It provides 2. The FLP Impossibility Result mechanics to manage state.",
+              "explanation": "2. The FLP Impossibility Result is designed to manage state and organize logic as defined: Fischer, Lynch, and Paterson (FLP) proved in 1985 that in an asynchronous network, no deterministic .",
+              "difficulty": 3,
+              "source_references": [
+                "chk_e2e47bce67be"
+              ]
+            }
+          ],
+          "rewards": {
+            "xp": 250,
+            "coins": 75,
+            "badge_id": "badge_chapter_master",
+            "achievement_name": "Vanquisher of Chapter 1: 1. The Distributed Consensus Problem & Foundations"
+          },
+          "completion_condition": {
+            "type": "min_accuracy",
+            "target_metric": "accuracy",
+            "required_value": 0.8
+          }
+        }
+      },
+      {
+        "id": "chp_96a13ed0c48a",
+        "title": "Chapter 2: 3. The Raft Consensus Algorithm & Foundations",
+        "description": "Mastery of 1 core concepts.",
+        "learning_objectives": [],
+        "missions": [
+          {
+            "mission_id": "msn_90bbf5dc5691",
+            "title": "Trial of 3. The Raft Consensus Algorithm",
+            "concept_ids": [
+              "cpt_6b17a4e0d2f3"
+            ],
+            "learning_objective": "Analyze and evaluate 3. The Raft Consensus Algorithm behaviors and dependency trade-offs.",
+            "mechanic": "quiz",
+            "challenge": {
+              "mechanic_type": "quiz",
+              "target_concept": "3. The Raft Consensus Algorithm",
+              "time_limit_seconds": 120
+            },
+            "difficulty": 3,
+            "story": {
+              "story_id": "sty_7fdf8a89647e",
+              "world": "Arcana Realm Citadel",
+              "context": "The archive sector governing 3. The Raft Consensus Algorithm has experienced memory drift. Scholars require your analytical insight to restore the corrupted nodes.",
+              "motivation": "Mastering 3. The Raft Consensus Algorithm is vital to stabilizing the system and unlocking the inner sanctum.",
+              "mission_setting": "Archive Vault of 3. The Raft Consensus Algorithm"
+            },
+            "npc": {
+              "npc_id": "npc_c694f95df462",
+              "name": "Archivist of 3. The Raft Consensus Algorithm",
+              "role": "Educational Mentor",
+              "educational_purpose": "Guide the learner through foundational principles of 3. The Raft Consensus Algorithm.",
+              "tone": "encouraging",
+              "dialogue": [
+                "Greetings, seeker. Today we explore 3. The Raft Consensus Algorithm.",
+                "Pay careful attention: Raft is designed specifically for understandability and operational clarity. It decomposes consensus into three independ.",
+                "Whenever you are ready, engage the simulation and test your understanding!"
+              ],
+              "concept_ids": [
+                "cpt_6b17a4e0d2f3"
+              ]
+            },
+            "questions": [
+              {
+                "question_id": "qst_ac8716a4353f",
+                "concept_id": "cpt_6b17a4e0d2f3",
+                "type": "mcq",
+                "question": "What is the primary pedagogical role of 3. The Raft Consensus Algorithm?",
+                "options": [
+                  "It provides 3. The Raft Consensus Algorithm mechanics to manage state.",
+                  "It completely disables 3. The Raft Consensus Algorithm functionality.",
+                  "It is purely decorative syntax with no runtime effect.",
+                  "It forces infinite recursive execution."
+                ],
+                "correct_answer": "It provides 3. The Raft Consensus Algorithm mechanics to manage state.",
+                "explanation": "3. The Raft Consensus Algorithm is designed to manage state and organize logic as defined: Raft is designed specifically for understandability and operational clarity. It decomposes consensus.",
+                "difficulty": 3,
+                "source_references": [
+                  "chk_3d10230a9b83"
+                ]
+              },
+              {
+                "question_id": "qst_52f8f4b07de3",
+                "concept_id": "cpt_6b17a4e0d2f3",
+                "type": "true_false",
+                "question": "True or False: 3. The Raft Consensus Algorithm is relevant to understanding computational structure.",
+                "options": [
+                  "True",
+                  "False"
+                ],
+                "correct_answer": "True",
+                "explanation": "True. 3. The Raft Consensus Algorithm plays an active role in structured reasoning.",
+                "difficulty": 2,
+                "source_references": [
+                  "chk_3d10230a9b83"
+                ]
+              }
+            ],
+            "hints": [
+              {
+                "hint_id": "hnt_56c4ff1e07d9",
+                "question_id": "qst_ac8716a4353f",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_e94d5b925327",
+                "question_id": "qst_ac8716a4353f",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_6c38b1f0530e",
+                "question_id": "qst_ac8716a4353f",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_37ecf8cc6887",
+                "question_id": "qst_ac8716a4353f",
+                "tier": 4,
+                "text": "Review the first key principle: '3. The Raft Consensus Algorithm is designed to manage state and organize logic a...'"
+              },
+              {
+                "hint_id": "hnt_ec2da94f3860",
+                "question_id": "qst_52f8f4b07de3",
+                "tier": 1,
+                "text": "Recall the fundamental definition and purpose of this concept."
+              },
+              {
+                "hint_id": "hnt_f90825c8c85e",
+                "question_id": "qst_52f8f4b07de3",
+                "tier": 2,
+                "text": "Focus on how this concept affects state and execution flow."
+              },
+              {
+                "hint_id": "hnt_9922e9f67b37",
+                "question_id": "qst_52f8f4b07de3",
+                "tier": 3,
+                "text": "Eliminate options that contradict the concept's core purpose."
+              },
+              {
+                "hint_id": "hnt_6d62665b10e5",
+                "question_id": "qst_52f8f4b07de3",
+                "tier": 4,
+                "text": "Review the first key principle: 'True. 3. The Raft Consensus Algorithm plays an active role in structured reasoni...'"
+              }
+            ],
+            "rewards": {
+              "xp": 150,
+              "coins": 30,
+              "badge_id": null,
+              "achievement_name": "3. The Raft Consensus Algorithm Initiate"
+            },
+            "completion_condition": {
+              "type": "min_accuracy",
+              "target_metric": "accuracy",
+              "required_value": 0.7
+            },
+            "source_references": [
+              "chk_3d10230a9b83"
+            ]
+          }
+        ],
+        "boss": null
+      }
+    ]
+  },
+  "metadata": {
+    "graph_id": "lg_d62f61940d7b",
+    "total_concepts": 4,
+    "total_missions": 4
+  },
+  "generated_at": "2026-09-13T14:11:41.876726+00:00"
+}

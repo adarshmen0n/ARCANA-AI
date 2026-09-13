@@ -7,7 +7,7 @@ and size constraints before any processing occurs.
 from pathlib import Path
 from typing import Set
 
-SUPPORTED_EXTENSIONS: Set[str] = {".pdf", ".docx", ".pptx", ".txt"}
+SUPPORTED_EXTENSIONS: Set[str] = {".pdf", ".docx", ".pptx", ".txt", ".md"}
 MAX_FILE_SIZE_BYTES: int = 50 * 1024 * 1024  # 50 MB limit
 
 
