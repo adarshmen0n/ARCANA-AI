@@ -1,0 +1,33 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS artifacts
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Scratch / temporary runtime files
+scratch/
+temp/
+logs/
+*.log
