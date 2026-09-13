@@ -1,0 +1,25 @@
+# Render Deployment Blueprint for ARCANA AI Brain
+services:
+  - type: web
+    name: arcana-ai-engine
+    env: python
+    rootDir: ai-engine
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    plan: free
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: PRIMARY_LLM_PROVIDER
+        value: gemini
+      - key: FALLBACK_LLM_PROVIDER
+        value: groq
+      - key: GEMINI_MODEL
+        value: gemini-3-flash-preview
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-20b
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
