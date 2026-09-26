@@ -1,8 +1,8 @@
 # ARCANA-AI Project Command Center 🎯
 
 **Last Updated**: `2026-09-26`  
-**Overall Project Status**: `PHASE 6 & 7 COMPLETE (Embeddings & Semantic Vector Retrieval)`  
-**Overall Completion**: `30%`
+**Overall Project Status**: `PHASE 8 COMPLETE (RAG Subsystem, Grounded Generation & Citations)`  
+**Overall Completion**: `35%`
 
 ---
 
@@ -12,7 +12,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **Repository & Architecture** | Adarsh | `DONE` | `main` | Tag release v0.1.0 baseline |
 | **Shared Contracts & Schemas** | Adarsh / All | `DONE` | `main` | Version v1.0.0 freeze |
-| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 8: RAG Subsystem & Grounded Context Assembly |
+| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 9 & 10: Knowledge Engine & Learning Graph Builder |
 | **Game Engine** | Dasarth | `NOT STARTED` | `feature/game-engine` | Mock consumer for `GameSpecification` |
 | **Frontend Client** | Jeenth | `NOT STARTED` | `feature/frontend` | Client scaffold & API type bindings |
 | **UI / Animation** | Kruthic | `NOT STARTED` | `feature/ui-animation` | Design tokens & theme specification |
@@ -44,7 +44,8 @@ Every feature branch must satisfy this checklist prior to merging into `main`:
 - [x] Phase 3: Implement document ingestion pipeline (PDF, DOCX, PPTX, TXT validation and extraction).
 - [x] Phase 4 & 5: Implement text preprocessing (normalization, cleaning) and structural/semantic chunking.
 - [x] Phase 6 & 7: Implement embedding provider abstraction, in-memory/vector indexing, and semantic retrieval pipeline.
-- [ ] **Phase 8 (Immediate Next)**: Implement RAG subsystem (grounded context selection, source citation tracking, and token budget management).
+- [x] Phase 8: Implement RAG subsystem (grounded context selection, source citation tracking, and token budget management).
+- [ ] **Phase 9 & 10 (Immediate Next)**: Implement Knowledge Engine (concept, relationship & prerequisite extraction) and Learning Graph DAG builder.
 
 ### 🎮 Dasarth (Game Engine)
 - [ ] Step 1: Clone repository and check out `feature/game-engine`.
