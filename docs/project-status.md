@@ -1,8 +1,8 @@
 # ARCANA-AI Project Command Center 🎯
 
 **Last Updated**: `2026-09-26`  
-**Overall Project Status**: `PHASE 4 & 5 COMPLETE (Preprocessing Normalization & Semantic Chunking)`  
-**Overall Completion**: `25%`
+**Overall Project Status**: `PHASE 6 & 7 COMPLETE (Embeddings & Semantic Vector Retrieval)`  
+**Overall Completion**: `30%`
 
 ---
 
@@ -12,7 +12,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **Repository & Architecture** | Adarsh | `DONE` | `main` | Tag release v0.1.0 baseline |
 | **Shared Contracts & Schemas** | Adarsh / All | `DONE` | `main` | Version v1.0.0 freeze |
-| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 6 & 7: Embeddings & Vector Retrieval Pipeline |
+| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 8: RAG Subsystem & Grounded Context Assembly |
 | **Game Engine** | Dasarth | `NOT STARTED` | `feature/game-engine` | Mock consumer for `GameSpecification` |
 | **Frontend Client** | Jeenth | `NOT STARTED` | `feature/frontend` | Client scaffold & API type bindings |
 | **UI / Animation** | Kruthic | `NOT STARTED` | `feature/ui-animation` | Design tokens & theme specification |
@@ -43,7 +43,8 @@ Every feature branch must satisfy this checklist prior to merging into `main`:
 - [x] Phase 2: Build FastAPI application foundation in `ai-engine-adarsh/` (`app/main.py`, config, logging, `/health` and `/health/ready` endpoints).
 - [x] Phase 3: Implement document ingestion pipeline (PDF, DOCX, PPTX, TXT validation and extraction).
 - [x] Phase 4 & 5: Implement text preprocessing (normalization, cleaning) and structural/semantic chunking.
-- [ ] **Phase 6 & 7 (Immediate Next)**: Implement embedding provider abstraction, in-memory/vector indexing, and semantic retrieval pipeline.
+- [x] Phase 6 & 7: Implement embedding provider abstraction, in-memory/vector indexing, and semantic retrieval pipeline.
+- [ ] **Phase 8 (Immediate Next)**: Implement RAG subsystem (grounded context selection, source citation tracking, and token budget management).
 
 ### 🎮 Dasarth (Game Engine)
 - [ ] Step 1: Clone repository and check out `feature/game-engine`.
