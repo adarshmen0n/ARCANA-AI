@@ -1,8 +1,8 @@
 # ARCANA-AI Project Command Center 🎯
 
 **Last Updated**: `2026-09-26`  
-**Overall Project Status**: `PHASE 1 COMPLETE (Repository & Contract Foundation)`  
-**Overall Completion**: `10%`
+**Overall Project Status**: `PHASE 2 COMPLETE (FastAPI Brain Foundation & Health Endpoints)`  
+**Overall Completion**: `15%`
 
 ---
 
@@ -12,7 +12,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **Repository & Architecture** | Adarsh | `DONE` | `main` | Tag release v0.1.0 baseline |
 | **Shared Contracts & Schemas** | Adarsh / All | `DONE` | `main` | Version v1.0.0 freeze |
-| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 2: FastAPI Foundation (`/health`, logging, config) |
+| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 3: Document Ingestion Pipeline |
 | **Game Engine** | Dasarth | `NOT STARTED` | `feature/game-engine` | Mock consumer for `GameSpecification` |
 | **Frontend Client** | Jeenth | `NOT STARTED` | `feature/frontend` | Client scaffold & API type bindings |
 | **UI / Animation** | Kruthic | `NOT STARTED` | `feature/ui-animation` | Design tokens & theme specification |
@@ -25,13 +25,13 @@
 
 Every feature branch must satisfy this checklist prior to merging into `main`:
 
-- [ ] **Implementation Exists**: Clean, readable, modular code adhering to folder boundaries.
-- [ ] **Schema Conformance**: All I/O strictly validated by Pydantic models in `shared/schemas/`.
-- [ ] **Automated Tests**: Unit tests implemented and passing with mocked dependencies.
-- [ ] **Resilience**: Structured error envelopes, timeout handling, and no unhandled exceptions.
-- [ ] **Security**: Zero committed secrets, environment variables loaded via `.env`.
-- [ ] **Observability**: Operations emit structured logs with `request_id` and timing metrics.
-- [ ] **Documentation**: Module README and `docs/project-status.md` updated.
+- [x] **Implementation Exists**: Clean, readable, modular code adhering to folder boundaries.
+- [x] **Schema Conformance**: All I/O strictly validated by Pydantic models in `shared/schemas/`.
+- [x] **Automated Tests**: Unit tests implemented and passing with mocked dependencies.
+- [x] **Resilience**: Structured error envelopes, timeout handling, and no unhandled exceptions.
+- [x] **Security**: Zero committed secrets, environment variables loaded via `.env`.
+- [x] **Observability**: Operations emit structured logs with `request_id` and timing metrics.
+- [x] **Documentation**: Module README and `docs/project-status.md` updated.
 
 ---
 
@@ -40,8 +40,8 @@ Every feature branch must satisfy this checklist prior to merging into `main`:
 ### 🧠 Adarsh (AI Engine Lead)
 - [x] Phase 1: Initialize repository structure, master documentation, and Git branches.
 - [x] Phase 1: Define shared contracts (`ai-game.md`, `game-ai.md`) and Pydantic schemas.
-- [ ] **Phase 2 (Immediate Next)**: Build FastAPI application foundation in `ai-engine-adarsh/` (`app/main.py`, config, logging, `/health` and `/health/ready` endpoints).
-- [ ] Phase 3: Implement document ingestion pipeline (PDF, DOCX, TXT validation and extraction).
+- [x] Phase 2: Build FastAPI application foundation in `ai-engine-adarsh/` (`app/main.py`, config, logging, `/health` and `/health/ready` endpoints).
+- [ ] **Phase 3 (Immediate Next)**: Implement document ingestion pipeline (PDF, DOCX, TXT validation and extraction).
 
 ### 🎮 Dasarth (Game Engine)
 - [ ] Step 1: Clone repository and check out `feature/game-engine`.
