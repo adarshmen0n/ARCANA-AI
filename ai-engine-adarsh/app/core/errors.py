@@ -56,7 +56,7 @@ class ValidationException(ArcanaException):
         super().__init__(
             message=message,
             code="SCHEMA_VALIDATION_FAILED",
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             details=details,
         )
 

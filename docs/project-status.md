@@ -1,8 +1,8 @@
 # ARCANA-AI Project Command Center 🎯
 
 **Last Updated**: `2026-09-26`  
-**Overall Project Status**: `PHASE 2 COMPLETE (FastAPI Brain Foundation & Health Endpoints)`  
-**Overall Completion**: `15%`
+**Overall Project Status**: `PHASE 3 COMPLETE (Document Ingestion Pipeline & Multi-Format Extractors)`  
+**Overall Completion**: `20%`
 
 ---
 
@@ -12,7 +12,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **Repository & Architecture** | Adarsh | `DONE` | `main` | Tag release v0.1.0 baseline |
 | **Shared Contracts & Schemas** | Adarsh / All | `DONE` | `main` | Version v1.0.0 freeze |
-| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 3: Document Ingestion Pipeline |
+| **AI Engine (FastAPI Brain)** | Adarsh | `IN PROGRESS` | `feature/ai-engine` | Phase 4 & 5: Preprocessing & Semantic Chunking |
 | **Game Engine** | Dasarth | `NOT STARTED` | `feature/game-engine` | Mock consumer for `GameSpecification` |
 | **Frontend Client** | Jeenth | `NOT STARTED` | `feature/frontend` | Client scaffold & API type bindings |
 | **UI / Animation** | Kruthic | `NOT STARTED` | `feature/ui-animation` | Design tokens & theme specification |
@@ -41,7 +41,8 @@ Every feature branch must satisfy this checklist prior to merging into `main`:
 - [x] Phase 1: Initialize repository structure, master documentation, and Git branches.
 - [x] Phase 1: Define shared contracts (`ai-game.md`, `game-ai.md`) and Pydantic schemas.
 - [x] Phase 2: Build FastAPI application foundation in `ai-engine-adarsh/` (`app/main.py`, config, logging, `/health` and `/health/ready` endpoints).
-- [ ] **Phase 3 (Immediate Next)**: Implement document ingestion pipeline (PDF, DOCX, TXT validation and extraction).
+- [x] Phase 3: Implement document ingestion pipeline (PDF, DOCX, PPTX, TXT validation and extraction).
+- [ ] **Phase 4 & 5 (Immediate Next)**: Implement text preprocessing (normalization, cleaning) and structural/semantic chunking.
 
 ### 🎮 Dasarth (Game Engine)
 - [ ] Step 1: Clone repository and check out `feature/game-engine`.
