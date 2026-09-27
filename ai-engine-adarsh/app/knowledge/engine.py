@@ -124,6 +124,21 @@ class KnowledgeEngine:
             return self.extract_knowledge(document_id).relationships
         return self._relationships_by_doc[document_id]
 
+    def list_all_concepts(self) -> List[Concept]:
+        """Returns all concepts extracted across all ingested documents."""
+        all_concepts: List[Concept] = []
+        for doc_concepts in self._concepts_by_doc.values():
+            all_concepts.extend(doc_concepts)
+        return all_concepts
+
+    def get_concept_by_id(self, concept_id: str) -> Optional[Concept]:
+        """Finds a concept across any ingested document by its concept_id."""
+        for doc_concepts in self._concepts_by_doc.values():
+            for c in doc_concepts:
+                if c.concept_id == concept_id:
+                    return c
+        return None
+
 
 # Global singleton instance
 knowledge_engine = KnowledgeEngine()
