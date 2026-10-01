@@ -1,72 +1,65 @@
-"""Google Gemini Embedding Provider implementation with retry and fallback."""
+"""Google Gemini Embedding Provider implementation using official google-genai SDK."""
 
 import time
 from typing import List, Optional
-import httpx
+
+try:
+    from google import genai
+    from google.genai import types
+    GENAI_AVAILABLE = True
+except ImportError:
+    GENAI_AVAILABLE = False
+
 from app.core.config import settings
-from app.core.errors import ProviderUnavailableException
 from app.core.logging import get_logger
 from app.embeddings.base import BaseEmbeddingProvider
 from app.embeddings.mock_provider import MockEmbeddingProvider
 
 logger = get_logger("app.embeddings.gemini")
 
-GEMINI_EMBED_URL = "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent"
-GEMINI_BATCH_URL = "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents"
-
 
 class GeminiEmbeddingProvider(BaseEmbeddingProvider):
-    """Generates 768-dimensional dense embeddings using Google Gemini text-embedding-004."""
+    """Generates 768-dimensional dense embeddings using Google GenAI SDK."""
 
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or settings.GEMINI_API_KEY
         self._fallback = MockEmbeddingProvider(dimension=768)
         self._dim = 768
 
+        self._client = None
+        if GENAI_AVAILABLE and self.api_key and not self.api_key.startswith("your_"):
+            try:
+                self._client = genai.Client(api_key=self.api_key)
+                logger.info("Initialized live GenAI Embedding Client (text-embedding-004)")
+            except Exception as e:
+                logger.warning(f"Could not initialize GenAI Embedding Client ({e}). Fallback active.")
+
     @property
     def dimension(self) -> int:
         return self._dim
 
     def embed_text(self, text: str) -> List[float]:
-        """Embeds a single text using Gemini API with automatic fallback."""
-        if not self.api_key or self.api_key.startswith("your_"):
-            logger.warning("No valid Gemini API key configured. Using deterministic fallback provider.")
+        """Embeds text using live GenAI embedding API with fallback."""
+        if not self._client:
             return self._fallback.embed_text(text)
-
-        payload = {
-            "model": "models/text-embedding-004",
-            "content": {"parts": [{"text": text[:8000]}]},
-        }
 
         retries = 3
         for attempt in range(1, retries + 1):
             try:
-                with httpx.Client(timeout=10.0) as client:
-                    response = client.post(
-                        f"{GEMINI_EMBED_URL}?key={self.api_key}",
-                        json=payload,
-                        headers={"Content-Type": "application/json"},
-                    )
-
-                if response.status_code == 200:
-                    data = response.json()
-                    return data["embedding"]["values"]
-
-                if response.status_code in (429, 503):
-                    time.sleep(0.5 * (2 ** (attempt - 1)))
-                    continue
-
-                logger.error(f"Gemini API returned error {response.status_code}: {response.text}")
+                response = self._client.models.embed_content(
+                    model="text-embedding-004",
+                    contents=text[:8000],
+                )
+                if response and response.embeddings:
+                    return response.embeddings[0].values
                 break
-
             except Exception as e:
-                logger.warning(f"Gemini API call failed (attempt {attempt}/{retries}): {str(e)}")
+                logger.warning(f"GenAI embedding call failed (attempt {attempt}/{retries}): {e}")
                 if attempt < retries:
                     time.sleep(0.5 * (2 ** (attempt - 1)))
 
-        logger.warning("Gemini API exhausted retries. Falling back to local deterministic embedding.")
         return self._fallback.embed_text(text)
 
     def embed_batch(self, texts: List[str]) -> List[List[float]]:
-        """Embeds a batch of texts."""
+        """Embeds batch of texts."""
         return [self.embed_text(t) for t in texts]
