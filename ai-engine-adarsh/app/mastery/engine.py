@@ -1,5 +1,7 @@
-"""Deterministic Mastery Engine implementing Bayesian Knowledge Tracing (BKT) and adaptive calibration."""
+"""Deterministic Mastery Engine implementing Bayesian Knowledge Tracing (BKT) and Ebbinghaus Retention Decay."""
 
+from datetime import datetime, timezone
+import math
 import os
 import sys
 from typing import Optional
@@ -15,7 +17,7 @@ logger = get_logger("app.mastery.engine")
 
 
 class BayesianKnowledgeTracingEngine:
-    """Implements Corbett & Anderson Bayesian Knowledge Tracing (BKT) with adaptive hint & streak scaling."""
+    """Implements Corbett & Anderson BKT coupled with Ebbinghaus Spaced-Repetition Decay."""
 
     # Default BKT hyperparameters
     DEFAULT_P_L0 = 0.10   # Prior probability of knowing concept
@@ -24,16 +26,52 @@ class BayesianKnowledgeTracingEngine:
     BASE_P_S = 0.10       # Base probability of slip (careless mistake despite knowing)
 
     @classmethod
+    def apply_temporal_decay(
+        cls,
+        current_mastery: ConceptMastery,
+        current_timestamp_iso: Optional[str] = None,
+    ) -> float:
+        """Applies Ebbinghaus forgetting curve decay: R(t) = P(L) * e^(-delta_t / S).
+
+        Stability S (in days) scales with past streaks and mastery depth.
+        """
+        p_prev = current_mastery.mastery_score
+        if p_prev <= 0.0 or not current_mastery.last_attempt_timestamp:
+            return p_prev
+
+        try:
+            t0 = datetime.fromisoformat(current_mastery.last_attempt_timestamp.replace("Z", "+00:00"))
+            t1 = (
+                datetime.fromisoformat(current_timestamp_iso.replace("Z", "+00:00"))
+                if current_timestamp_iso
+                else datetime.now(timezone.utc)
+            )
+            delta_days = max(0.0, (t1 - t0).total_seconds() / 86400.0)
+            if delta_days <= 0.05:  # Within ~1 hour, active session retention is preserved
+                return p_prev
+
+            # Half-life stability factor S (in days)
+            stability_days = 2.0 + (3.0 * current_mastery.consecutive_correct) + (10.0 * p_prev)
+            retention_rate = math.exp(-delta_days / stability_days)
+            p_decayed = round(max(cls.DEFAULT_P_L0, p_prev * retention_rate), 4)
+            logger.info(f"Ebbinghaus decay applied: {p_prev:.4f} -> {p_decayed:.4f} (dt={delta_days:.2f}d, S={stability_days:.1f}d)")
+            return p_decayed
+        except Exception:
+            return p_prev
+
+    @classmethod
     def calculate_update(
         cls,
         student_id: str,
         current_mastery: ConceptMastery,
         interaction: StudentInteractionRecord,
     ) -> MasteryUpdateResult:
-        """Calculates Bayesian posterior probability of knowledge acquisition after student interaction."""
+        """Calculates Bayesian posterior probability of knowledge acquisition with temporal decay."""
         prev_score = current_mastery.mastery_score
+        decayed_prior = cls.apply_temporal_decay(current_mastery, interaction.timestamp)
+
         # If student has zero prior attempts, initialize with BKT prior P(L0)
-        p_prior = prev_score if (current_mastery.total_attempts > 0 or prev_score > 0.0) else cls.DEFAULT_P_L0
+        p_prior = decayed_prior if (current_mastery.total_attempts > 0 or decayed_prior > 0.0) else cls.DEFAULT_P_L0
         diff = max(1, min(5, interaction.difficulty))
 
         # 1. Calibrate Guess Probability P(G) based on Hints used
@@ -94,8 +132,8 @@ class BayesianKnowledgeTracingEngine:
             next_diff = diff
 
         logger.info(
-            f"[BKT Mastery] Student '{student_id}' on '{interaction.concept_id}': "
-            f"{prev_score:.4f} -> {new_score:.4f} (delta={delta:+.4f}, BKT_p_g={p_g:.2f}, remediation={remediation_required})"
+            f"[BKT+Decay] Student '{student_id}' on '{interaction.concept_id}': "
+            f"{prev_score:.4f} -> {new_score:.4f} (delta={delta:+.4f}, P(G)={p_g:.2f}, remediation={remediation_required})"
         )
 
         return MasteryUpdateResult(
